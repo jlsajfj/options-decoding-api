@@ -1,0 +1,118 @@
+{
+  "openapi": 3.0.0,
+  "info": {
+    "title": "Options Decoding API",
+    "version": "1.0.0",
+    "description": "Options nomenclature is complex",
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "description": "Decodes options naming convention",
+        "requestBody": {
+          "description": "String to decode",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "option"
+                ],
+                "properties": {
+                  "option": {"$ref": "#/components/schemas/encoded_option"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Decoded option",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/decoded_option"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "encoded_option": {
+        "type": "string",
+        "description": "Option in standard naming convention",
+        "pattern": "[A-Z]{1,6}\\d{6}[CP]\\d{8}",
+        "example": "YHOO150416C00031420",
+      },
+      "decoded_option": {
+        "type": "object",
+        "description": "Option broken down",
+        "required": [
+          "symbol",
+          "year",
+          "month",
+          "day",
+          "option_type",
+          "price"
+        ],
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Ticker of option",
+            "minLength": 1,
+            "maxLength": 6,
+            "example": "AAPL"
+          },
+          "company_name": {
+            "type": "string",
+            "description": "Name of company",
+            "example": "Apple"
+          },
+          "year": {
+            "type": "integer",
+            "description": "Expiration year",
+            "example": 2015
+          },
+          "month": {
+            "type": "integer",
+            "description": "Expiration month",
+            "example": 4
+          },
+          "day": {
+            "type": "integer",
+            "description": "Expiration day",
+            "example": 16
+          },
+          "option_type": {
+            "type": "string",
+            "enum": [
+              "call",
+              "put"
+            ]
+          },
+          "price": {
+            "type": "number",
+            "description": "Strike price",
+            "example": 31.42
+          }
+        },
+        "example": {
+          "symbol": "AAPL",
+          "company_name": "Apple",
+          "year": 2015,
+          "month": 4,
+          "day": 16,
+          "option_type": "call",
+          "price": 31.42
+        }
+      }
+    }
+  }
+}
