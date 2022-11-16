@@ -8,7 +8,6 @@ Basic usage notes, for more in-depth version check out [api.json](./api.json).
 Verifies API is active and functioning. Should always response `alive`.
 
 ### /decode-option
-*(not actually complete yet)*
 Decode option from standard naming convention to JSON data. For example:
 
 POST:
