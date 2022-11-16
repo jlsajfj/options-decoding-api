@@ -29,7 +29,7 @@
         }
       }
     },
-    "/": {
+    "/decode-api": {
       "post": {
         "description": "Decodes options naming convention",
         "requestBody": {
