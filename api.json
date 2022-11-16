@@ -11,6 +11,24 @@
     }
   ],
   "paths": {
+    "/health-check": {
+      "get": {
+        "description": "Health check",
+        "responses": {
+          "200": {
+            "description": "Status",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "enum": ["alive"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/": {
       "post": {
         "description": "Decodes options naming convention",
