@@ -1,4 +1,4 @@
-import flask, os, decoder
+import flask, os, re, decoder
 
 
 app = flask.Flask(__name__)
@@ -17,6 +17,9 @@ def crawler_server():
     
     if 'option' not in f_body:
         return 'encoded option missing in request', 400
+        
+    if not re.search('[A-Z]{1,6}\\d{6}[CP]\\d{8}', f_body['option']):
+        return 'invalid option format', 400
     
     return decoder.decode_option(f_body['option']), 200
 
