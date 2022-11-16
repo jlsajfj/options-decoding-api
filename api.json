@@ -29,7 +29,7 @@
         }
       }
     },
-    "/decode-api": {
+    "/decode-option": {
       "post": {
         "description": "Decodes options naming convention",
         "requestBody": {
@@ -67,7 +67,7 @@
         "type": "string",
         "description": "Option in standard naming convention",
         "pattern": "[A-Z]{1,6}\\d{6}[CP]\\d{8}",
-        "example": "YHOO150416C00031420",
+        "example": "AAPL150416C00031420",
       },
       "decoded_option": {
         "type": "object",
