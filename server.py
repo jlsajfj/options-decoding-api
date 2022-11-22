@@ -11,7 +11,7 @@ def health_check():
 
 @app.route('/usage', methods=['GET'])
 def get_usage():
-    return 'this page is under construction, instructions will go here', 503
+    return flask.render_template('index.html')
 
 @app.route('/usage', methods=['POST'])
 def post_usage():
