@@ -3,7 +3,7 @@
   "info": {
     "title": "Options Decoding API",
     "version": "1.0.0",
-    "description": "Options nomenclature is complex",
+    "description": "Options nomenclature is complex"
   },
   "servers": [
     {
@@ -92,7 +92,7 @@
         "type": "string",
         "description": "Option in standard naming convention",
         "pattern": "[A-Z]{1,6}\\d{6}[CP]\\d{8}",
-        "example": "AAPL150416C00031420",
+        "example": "AAPL150416C00031420"
       },
       "decoded_option": {
         "type": "object",
