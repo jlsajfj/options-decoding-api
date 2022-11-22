@@ -1,0 +1,15 @@
+[Unit]
+Description=Options API service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+WorkingDirectory=/home/ubuntu/options-decoding-api/
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart= /home/ubuntu/envs/flask01/bin/python /home/ubuntu/options-decoding-api/server.py
+
+[Install]
+WantedBy=multi-user.target
