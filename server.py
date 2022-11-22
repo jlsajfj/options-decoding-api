@@ -1,7 +1,9 @@
 import flask, os, re, decoder
+from flask_cors import CORS
 
 
 app = flask.Flask(__name__)
+CORS(app)
 
 @app.route('/health-check', methods=['GET'])
 def health_check():
