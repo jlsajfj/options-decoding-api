@@ -7,9 +7,17 @@ app = flask.Flask(__name__)
 def health_check():
     return 'alive', 200
 
+@app.route('/usage', methods=['GET'])
+def get_usage():
+    return 'this page is under construction, instructions will go here', 503
+
+@app.route('/usage', methods=['POST'])
+def post_usage():
+    return flask.send_file('api.json')
+
 @app.route('/', methods=['GET'])
 def get_home():
-    return 'this page is under construction, instructions will go here', 503
+    return flask.redirect('/usage', code=302)
 
 @app.route('/decode-option', methods=['POST'])
 def crawler_server():
