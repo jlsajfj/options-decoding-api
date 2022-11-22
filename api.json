@@ -7,7 +7,8 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5000",
+      "url": "http://140.238.151.56:5000",
+      "description": "OCI instance"
     }
   ],
   "paths": {
@@ -24,6 +25,30 @@
                   "enum": ["alive"]
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "/usage": {
+      "get": {
+        "description": "API usage instructions",
+        "responses": {
+          "200": {
+            "description": "Usage instructions",
+            "content": {
+              "text/html": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "API usage instructions",
+        "responses": {
+          "200": {
+            "description": "OpenAPI JSON file",
+            "content": {
+              "application/json": {}
             }
           }
         }
