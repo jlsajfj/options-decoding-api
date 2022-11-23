@@ -1,6 +1,8 @@
 # options-decoding-api
 Since options naming is weird...
 
+Everything is based on the [wikipedia page for options naming convention](https://en.wikipedia.org/wiki/Option_naming_convention).
+
 ## Usage
 Basic usage notes, for more in-depth version check out [api.json](./api.json).
 
