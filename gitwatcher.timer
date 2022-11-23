@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodically checks for updates in remote git
+Requires=gitwatcher.service
+
+[Timer]
+Unit=gitwatcher.service
+OnCalendar=*-*-* *:*:00
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Auto checker for git
+After=optionsapi.service
+StartLimitIntervalSec=0
+Wants=gitwatcher.timer
+
+[Service]
+WorkingDirectory=/home/ubuntu/options-decoding-api/
+Type=oneshot
+User=ubuntu
+ExecStart=/home/ubuntu/options-decoding-api/check.sh
