@@ -28,10 +28,10 @@ def crawler_server():
     if 'option' not in f_body:
         return 'encoded option missing in request', 400
         
-    if not re.search('[A-Z]{1,6}\\d{6}[CP]\\d{8}', f_body['option']):
-        return 'invalid option format', 400
+    if re.search('[A-Z]{1,6}\\d{6}[CP]\\d{8}', f_body['option']):
+        return decoder.decode_option(f_body['option']), 200
     
-    return decoder.decode_option(f_body['option']), 200
+    return 'invalid option format', 400
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
