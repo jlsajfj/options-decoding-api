@@ -9,8 +9,9 @@ CORS(app)
 @app.before_request
 def block_method():
     ip = flask.request.environ.get('REMOTE_ADDR')
+    
     if ip in block_list.ips:
-        flask.abort(200) #confuse them
+        flask.abort(403)
 
 @app.route('/health-check', methods=['GET'])
 def health_check():
