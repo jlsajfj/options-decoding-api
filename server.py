@@ -17,17 +17,13 @@ def block_method():
 def health_check():
     return 'alive', 200
 
-@app.route('/usage', methods=['GET'])
-def get_usage():
-    return flask.render_template('index.html')
-
 @app.route('/usage', methods=['POST'])
 def post_usage():
     return flask.send_file('api.json')
 
 @app.route('/', methods=['GET'])
 def get_home():
-    return flask.redirect('/usage', code=302)
+    return flask.render_template('index.html')
 
 @app.route('/decode-option', methods=['POST'])
 def crawler_server():

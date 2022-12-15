@@ -12,6 +12,19 @@
     }
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "API usage instructions",
+        "responses": {
+          "200": {
+            "description": "Usage instructions",
+            "content": {
+              "text/html": {}
+            }
+          }
+        }
+      }
+    },
     "/health-check": {
       "get": {
         "description": "Health check",
@@ -31,17 +44,6 @@
       }
     },
     "/usage": {
-      "get": {
-        "description": "API usage instructions",
-        "responses": {
-          "200": {
-            "description": "Usage instructions",
-            "content": {
-              "text/html": {}
-            }
-          }
-        }
-      },
       "post": {
         "description": "API usage instructions",
         "responses": {
