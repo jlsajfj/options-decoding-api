@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://140.238.151.56:5000",
+      "url": "http://140.238.151.56/options/",
       "description": "OCI instance"
     }
   ],
