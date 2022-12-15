@@ -25,7 +25,7 @@ def post_usage():
 def get_home():
     return flask.render_template('index.html')
 
-@app.route('/decode-option', methods=['POST'])
+@app.route('/', methods=['POST'])
 def crawler_server():
     f_body = flask.request.json
     

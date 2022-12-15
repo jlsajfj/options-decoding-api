@@ -14,12 +14,43 @@
   "paths": {
     "/": {
       "get": {
-        "description": "API usage instructions",
+        "summary": "API usage instructions",
+        "description": "",
         "responses": {
           "200": {
             "description": "Usage instructions",
             "content": {
               "text/html": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Decode option",
+        "description": "Decodes options naming convention",
+        "requestBody": {
+          "description": "String to decode",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "option"
+                ],
+                "properties": {
+                  "option": {"$ref": "#/components/schemas/encoded_option"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Decoded option",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/decoded_option"}
+              }
             }
           }
         }
@@ -51,37 +82,6 @@
             "description": "OpenAPI JSON file",
             "content": {
               "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/decode-option": {
-      "post": {
-        "description": "Decodes options naming convention",
-        "requestBody": {
-          "description": "String to decode",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "option"
-                ],
-                "properties": {
-                  "option": {"$ref": "#/components/schemas/encoded_option"}
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Decoded option",
-            "content": {
-              "application/json": {
-                "schema": {"$ref": "#/components/schemas/decoded_option"}
-              }
             }
           }
         }
